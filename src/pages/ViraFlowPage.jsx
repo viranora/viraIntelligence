@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, Zap, WifiOff, Lock, Eye, Download, ArrowRight, Sparkles } from 'lucide-react';
+import { Smartphone, Zap, WifiOff, Lock, Eye, Calendar, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const ViraFlowPage = () => {
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
-    // Saati güncelle
     const updateTime = () => {
       const now = new Date();
       const hours = now.getHours().toString().padStart(2, '0');
@@ -54,34 +53,25 @@ const ViraFlowPage = () => {
     'Offline Sync'
   ];
 
-  // Animasyonlu telefon mockup'ı için
+  // Sadeleştirilmiş telefon mockup
   const PhoneMockup = () => {
     const [activeTask, setActiveTask] = useState(0);
     
     useEffect(() => {
       const interval = setInterval(() => {
-        setActiveTask((prev) => (prev + 1) % 3);
-      }, 3000);
+        setActiveTask((prev) => (prev + 1) % 2);
+      }, 4000); // Daha yavaş animasyon
       return () => clearInterval(interval);
     }, []);
 
-    const demoTasks = [
-      { id: 1, title: 'Write launch copy', column: 'todo', color: 'bg-[#A5A58D]' },
-      { id: 2, title: 'Design email template', column: 'todo', color: 'bg-[#A5A58D]' },
-      { id: 3, title: 'Final QA check', column: 'todo', color: 'bg-[#A5A58D]' },
-      { id: 4, title: 'App store assets', column: 'doing', color: 'bg-[#D4A373]' },
-      { id: 5, title: 'Demo video script', column: 'doing', color: 'bg-[#D4A373]' },
-      { id: 6, title: 'Press release', column: 'done', color: 'bg-[#FAEDCD]/30' },
-    ];
-
     return (
-      <div className="relative w-80 h-[640px]">
+      <div className="relative w-80 h-[640px] mx-auto">
         {/* Floating Animation Elements */}
         <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-[#D4A373]/10 blur-xl animate-pulse"></div>
-        <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-[#A5A58D]/10 blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-[#A5A58D]/10 blur-xl animate-pulse"></div>
         
-        {/* Phone Frame with Animation */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#2D2926] to-[#1E1B18] rounded-[3rem] border-[14px] border-[#2D2926] shadow-2xl animate-float">
+        {/* Phone Frame */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2D2926] to-[#1E1B18] rounded-[3rem] border-[14px] border-[#2D2926] shadow-2xl">
           {/* Notch & Status Bar */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-7 bg-[#2D2926] rounded-b-2xl flex items-center justify-between px-8">
             <span className="text-xs text-[#FAEDCD]/60 font-medium">{currentTime}</span>
@@ -95,151 +85,82 @@ const ViraFlowPage = () => {
           
           {/* Screen Content */}
           <div className="absolute inset-[14px] rounded-[2.5rem] overflow-hidden bg-[#1E1B18]">
-            {/* App Header with Animation */}
-            <div className="p-6 bg-gradient-to-r from-[#D4A373]/15 to-[#A5A58D]/15 relative overflow-hidden">
-              {/* Animated Background Lines */}
-              <div className="absolute inset-0">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute h-px bg-gradient-to-r from-transparent via-[#D4A373]/10 to-transparent"
-                    style={{
-                      top: `${30 + i * 20}%`,
-                      left: '-10%',
-                      width: '120%',
-                      animation: `moveLine ${15 + i * 5}s linear infinite`
-                    }}
-                  />
-                ))}
-              </div>
-              
-              <div className="relative z-10 flex items-center justify-between">
+            {/* App Header */}
+            <div className="p-6 bg-gradient-to-r from-[#D4A373]/15 to-[#A5A58D]/15">
+              <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-bold text-xl">ViraFlow</h4>
-                  <p className="text-sm text-[#FAEDCD]/60">Product Launch • 6 tasks</p>
+                  <h4 className="font-bold text-2xl">ViraFlow</h4>
+                  <p className="text-base text-[#FAEDCD]/60">Product Launch</p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-[#D4A373]/20 flex items-center justify-center animate-pulse">
-                  <Zap className="w-5 h-5 text-[#D4A373]" />
+                <div className="w-12 h-12 rounded-full bg-[#D4A373]/20 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-[#D4A373]" />
                 </div>
               </div>
             </div>
 
-            {/* Kanban Board with Animation */}
-            <div className="p-5">
-              <div className="flex items-center justify-between mb-6">
-                <h5 className="font-bold text-lg">Today's Tasks</h5>
+            {/* Basitleştirilmiş Kanban Board - Sadece 2 görev */}
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-8">
+                <h5 className="font-bold text-xl">Today's Focus</h5>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#D4A373] animate-ping"></div>
-                  <span className="text-xs text-[#FAEDCD]/40">AI Processing...</span>
+                  <div className="w-2 h-2 rounded-full bg-[#D4A373] animate-pulse"></div>
+                  <span className="text-sm text-[#FAEDCD]/50">AI Active</span>
                 </div>
               </div>
 
-              {/* Animated Kanban Columns */}
-              <div className="grid grid-cols-3 gap-4">
-                {/* To Do Column */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#A5A58D] animate-pulse"></div>
-                    <span className="text-sm font-medium">To Do</span>
-                    <span className="ml-auto text-xs text-[#FAEDCD]/40">3</span>
-                  </div>
-                  <div className="space-y-2">
-                    {demoTasks.filter(t => t.column === 'todo').map((task, i) => (
-                      <div 
-                        key={task.id}
-                        className={`p-3 rounded-xl bg-[#2D2926] border ${activeTask === i ? 'border-[#D4A373]/50' : 'border-white/5'} transition-all duration-500`}
-                      >
-                        <div className="flex items-start gap-2">
-                          <div className={`w-2 h-2 rounded-full ${task.color} mt-1.5`}></div>
-                          <span className="text-sm">{task.title}</span>
-                        </div>
-                        {activeTask === i && (
-                          <div className="mt-2 flex items-center justify-between">
-                            <div className="text-xs text-[#FAEDCD]/40">AI analyzing...</div>
-                            <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#D4A373] to-[#A5A58D] animate-spin"></div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Doing Column */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#D4A373] animate-pulse"></div>
-                    <span className="text-sm font-medium">Doing</span>
-                    <span className="ml-auto text-xs text-[#FAEDCD]/40">2</span>
-                  </div>
-                  <div className="space-y-2">
-                    {demoTasks.filter(t => t.column === 'doing').map((task, i) => (
-                      <div 
-                        key={task.id}
-                        className={`p-3 rounded-xl bg-[#2D2926] border ${activeTask === i + 3 ? 'border-[#D4A373]/50' : 'border-white/5'} transition-all duration-500`}
-                      >
-                        <div className="flex items-start gap-2">
-                          <div className={`w-2 h-2 rounded-full ${task.color} mt-1.5`}></div>
-                          <span className="text-sm">{task.title}</span>
-                        </div>
-                        {activeTask === i + 3 && (
-                          <div className="mt-2 flex items-center gap-2">
-                            <div className="text-xs text-[#D4A373]">In progress →</div>
-                            <div className="w-3 h-0.5 bg-[#D4A373] animate-pulse rounded-full"></div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Done Column */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#FAEDCD]/30 animate-pulse"></div>
-                    <span className="text-sm font-medium">Done</span>
-                    <span className="ml-auto text-xs text-[#FAEDCD]/40">1</span>
-                  </div>
-                  <div className="space-y-2">
-                    {demoTasks.filter(t => t.column === 'done').map((task, i) => (
-                      <div 
-                        key={task.id}
-                        className="p-3 rounded-xl bg-[#2D2926]/50 border border-white/5 opacity-70"
-                      >
-                        <div className="flex items-start gap-2">
-                          <div className={`w-2 h-2 rounded-full ${task.color} mt-1.5`}></div>
-                          <span className="text-sm line-through">{task.title}</span>
-                        </div>
-                        <div className="mt-2 flex items-center gap-1">
-                          <span className="text-xs text-[#A5A58D]">Completed</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Animated AI Assistant */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#D4A373] to-[#A5A58D] flex items-center justify-center shadow-xl animate-bounce">
-                    <div className="w-7 h-7 bg-[#1E1B18] rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-[#D4A373] rounded-full animate-pulse"></div>
+              {/* 2 Büyük Task Kartı */}
+              <div className="space-y-4">
+                {/* Task 1 */}
+                <div 
+                  className={`p-6 rounded-2xl bg-[#2D2926] border transition-all duration-700 ${
+                    activeTask === 0 ? 'border-[#D4A373]/50 scale-105' : 'border-white/5'
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-4 h-4 rounded-full bg-[#A5A58D] mt-1.5"></div>
+                    <div className="flex-1">
+                      <h6 className="text-lg font-semibold mb-2">Write launch copy</h6>
+                      <p className="text-sm text-[#FAEDCD]/50">Marketing • High Priority</p>
                     </div>
                   </div>
-                  {/* Pulsing Rings */}
-                  <div className="absolute inset-0 w-16 h-16 rounded-full border-2 border-[#D4A373]/30 animate-ping"></div>
-                  <div className="absolute inset-0 w-16 h-16 rounded-full border-2 border-[#D4A373]/20 animate-ping delay-700"></div>
+                  {activeTask === 0 && (
+                    <div className="mt-4 flex items-center gap-3 text-[#D4A373] animate-fade-up">
+                      <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#D4A373] to-[#A5A58D]"></div>
+                      <span className="text-sm font-medium">AI analyzing...</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Task 2 */}
+                <div 
+                  className={`p-6 rounded-2xl bg-[#2D2926] border transition-all duration-700 ${
+                    activeTask === 1 ? 'border-[#D4A373]/50 scale-105' : 'border-white/5'
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-4 h-4 rounded-full bg-[#D4A373] mt-1.5"></div>
+                    <div className="flex-1">
+                      <h6 className="text-lg font-semibold mb-2">Design email template</h6>
+                      <p className="text-sm text-[#FAEDCD]/50">Design • In Progress</p>
+                    </div>
+                  </div>
+                  {activeTask === 1 && (
+                    <div className="mt-4 flex items-center gap-3 text-[#D4A373] animate-fade-up">
+                      <CheckCircle2 className="w-5 h-5" />
+                      <span className="text-sm font-medium">Ready to move →</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Basit AI Indicator */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+                <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#D4A373]/20 to-[#A5A58D]/20 border border-[#D4A373]/30">
+                  <div className="w-2 h-2 rounded-full bg-[#D4A373] animate-ping"></div>
+                  <span className="text-sm text-[#FAEDCD]/70">AI Processing</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        
-        {/* Animated Task Moving Indicator */}
-        <div className="absolute -right-8 top-1/2 -translate-y-1/2">
-          <div className="flex items-center gap-2 animate-pulse">
-            <div className="w-2 h-2 rounded-full bg-[#D4A373]"></div>
-            <div className="text-sm text-[#D4A373] font-medium">Task moving →</div>
           </div>
         </div>
       </div>
@@ -256,7 +177,7 @@ const ViraFlowPage = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4A373]/10 border border-[#D4A373]/20 mb-6">
                 <Sparkles className="w-4 h-4 text-[#D4A373]" />
                 <span className="text-sm font-medium text-[#D4A373]">
-                  Flagship Product
+                  Deploy Stage • Beta Testing
                 </span>
               </div>
               
@@ -272,14 +193,15 @@ const ViraFlowPage = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-[#D4A373] text-[#1E1B18] font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/90 active:scale-95 shadow-lg flex items-center gap-3 text-lg animate-pulse hover:animate-none">
-                  <Download className="w-5 h-5" />
-                  Download Now
-                </button>
-                <button className="bg-transparent text-[#FAEDCD] font-medium px-8 py-4 rounded-lg transition-all duration-300 hover:bg-white/5 active:scale-95 border border-[#A5A58D]/30">
-                  Watch Demo
+                <button className="bg-[#D4A373]/20 text-[#D4A373] font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/30 border border-[#D4A373]/40 flex items-center justify-center gap-3 text-lg">
+                  <Calendar className="w-5 h-5" />
+                  Coming to iOS & Android Q1 2026
                 </button>
               </div>
+              
+              <p className="text-sm text-[#FAEDCD]/50 mt-4">
+                Currently in final testing phase. App Store & Play Store launch Q1 2026.
+              </p>
             </div>
             
             <div className="relative flex justify-center">
@@ -345,20 +267,26 @@ const ViraFlowPage = () => {
             </div>
             
             <div className="bg-[#1E1B18] border border-white/10 rounded-3xl p-8 hover:border-[#D4A373]/30 transition-colors">
-              <h4 className="text-2xl font-bold mb-4">Ready to get started?</h4>
+              <h4 className="text-2xl font-bold mb-4">Ready for Launch</h4>
               <p className="text-[#FAEDCD]/70 mb-6">
-                Join thousands of users who have transformed their productivity with ViraFlow.
+                ViraFlow is in final deployment stage. We're preparing for App Store and Play Store release in Q1 2026.
               </p>
               <div className="space-y-4">
-                <button className="w-full bg-[#D4A373] text-[#1E1B18] font-semibold py-4 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/90 active:scale-95 hover:scale-105">
-                  Download for iOS
-                </button>
-                <button className="w-full bg-transparent text-[#FAEDCD] font-medium py-4 rounded-lg transition-all duration-300 hover:bg-white/5 border border-[#A5A58D]/30 hover:border-[#A5A58D]/50">
-                  Download for Android
-                </button>
+                <div className="flex items-center gap-3 text-[#FAEDCD]/60">
+                  <CheckCircle2 className="w-5 h-5 text-[#A5A58D]" />
+                  <span>Beta testing completed</span>
+                </div>
+                <div className="flex items-center gap-3 text-[#FAEDCD]/60">
+                  <CheckCircle2 className="w-5 h-5 text-[#A5A58D]" />
+                  <span>App Store submission in progress</span>
+                </div>
+                <div className="flex items-center gap-3 text-[#FAEDCD]/60">
+                  <div className="w-5 h-5 rounded-full border-2 border-[#D4A373] border-t-transparent animate-spin"></div>
+                  <span>Final deployment phase</span>
+                </div>
               </div>
-              <p className="text-sm text-[#FAEDCD]/40 mt-4 text-center">
-                Free 14-day trial • No credit card required
+              <p className="text-sm text-[#FAEDCD]/40 mt-6 text-center">
+                Expected launch: Q1 2026
               </p>
             </div>
           </div>

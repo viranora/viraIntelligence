@@ -62,28 +62,31 @@ const ViraSocialPage = () => {
             <div className="relative">
               <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full bg-[#A5A58D]/10 blur-2xl"></div>
               <div className="bg-gradient-to-br from-[#2D2926] to-[#1E1B18] border border-white/10 rounded-3xl p-8">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <Users className="w-12 h-12 text-[#A5A58D]" />
+                <div className="space-y-6 text-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="p-4 rounded-2xl bg-[#A5A58D]/10">
+                      <Users className="w-12 h-12 text-[#A5A58D]" />
+                    </div>
                     <div>
-                      <h4 className="text-2xl font-bold">Join the Waitlist</h4>
-                      <p className="text-[#FAEDCD]/60">Be among the first to experience ViraSocial</p>
+                      <h4 className="text-2xl font-bold mb-2">Coming Soon</h4>
+                      <p className="text-[#FAEDCD]/60">We're building something special</p>
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <input 
-                      type="email" 
-                      placeholder="Your email address"
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-[#FAEDCD] placeholder-[#FAEDCD]/40 focus:outline-none focus:border-[#A5A58D]/50"
-                    />
-                    <button className="w-full bg-[#A5A58D] text-[#1E1B18] font-semibold py-3 rounded-lg transition-all duration-300 hover:bg-[#A5A58D]/80">
-                      Join Waitlist
-                    </button>
+                  <div className="py-8 border-t border-b border-white/10">
+                    <div className="flex items-center justify-center gap-3 mb-3">
+                      <Calendar className="w-5 h-5 text-[#A5A58D]" />
+                      <span className="text-sm text-[#FAEDCD]/60">Expected Launch</span>
+                    </div>
+                    <p className="text-3xl font-bold text-[#A5A58D]">Q2 2026</p>
                   </div>
                   
-                  <p className="text-sm text-[#FAEDCD]/40 text-center">
-                    We respect your privacy. No spam, ever.
+                  <p className="text-sm text-[#FAEDCD]/60 leading-relaxed">
+                    ViraSocial is in active development. Follow us on{' '}
+                    <a href="https://github.com/Vira-Intelligence" target="_blank" rel="noopener noreferrer" className="text-[#A5A58D] hover:underline">
+                      GitHub
+                    </a>
+                    {' '}for updates.
                   </p>
                 </div>
               </div>

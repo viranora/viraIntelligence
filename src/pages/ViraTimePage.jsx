@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, BarChart3, Target, Sparkles, Zap } from 'lucide-react';
+import { Clock, BarChart3, Target, Sparkles, Zap, Calendar } from 'lucide-react';
 
 const ViraTimePage = () => {
   return (
@@ -74,25 +74,32 @@ const ViraTimePage = () => {
 
             <div className="relative">
               <div className="bg-gradient-to-br from-[#2D2926] to-[#1E1B18] border border-white/10 rounded-3xl p-8">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <Clock className="w-12 h-12 text-[#D4A373]" />
+                <div className="space-y-6 text-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="p-4 rounded-2xl bg-[#D4A373]/10">
+                      <Clock className="w-12 h-12 text-[#D4A373]" />
+                    </div>
                     <div>
-                      <h4 className="text-2xl font-bold">Get Early Access</h4>
-                      <p className="text-[#FAEDCD]/60">Help shape the future of ViraTime</p>
+                      <h4 className="text-2xl font-bold mb-2">Coming Soon</h4>
+                      <p className="text-[#FAEDCD]/60">Time tracking reimagined</p>
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div className="text-center py-6 border border-dashed border-white/20 rounded-xl">
-                      <p className="text-[#FAEDCD]/60">Early Access Program</p>
-                      <p className="text-2xl font-bold text-[#D4A373] mt-2">Q3 2026</p>
+                  <div className="py-8 border-t border-b border-white/10">
+                    <div className="flex items-center justify-center gap-3 mb-3">
+                      <Calendar className="w-5 h-5 text-[#D4A373]" />
+                      <span className="text-sm text-[#FAEDCD]/60">Expected Launch</span>
                     </div>
-                    
-                    <button className="w-full bg-transparent text-[#D4A373] font-medium py-3 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/10 border border-[#D4A373]/30">
-                      Notify Me on Launch
-                    </button>
+                    <p className="text-3xl font-bold text-[#D4A373]">Q3 2026</p>
                   </div>
+                  
+                  <p className="text-sm text-[#FAEDCD]/60 leading-relaxed">
+                    ViraTime is in early development. Follow us on{' '}
+                    <a href="https://github.com/Vira-Intelligence" target="_blank" rel="noopener noreferrer" className="text-[#D4A373] hover:underline">
+                      GitHub
+                    </a>
+                    {' '}for progress updates.
+                  </p>
                 </div>
               </div>
             </div>

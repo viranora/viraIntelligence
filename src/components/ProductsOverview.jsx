@@ -8,7 +8,8 @@ const ProductsOverview = () => {
       name: 'ViraFlow',
       description: 'AI-powered productivity & task management with privacy-first design.',
       icon: Zap,
-      status: 'Available Now',
+      status: 'Deploy Stage',
+      statusColor: 'bg-[#D4A373]/20 text-[#D4A373]',
       link: '/viraflow',
       color: 'from-[#D4A373]/20 to-[#D4A373]/5',
       borderColor: 'border-[#D4A373]/30'
@@ -18,6 +19,7 @@ const ProductsOverview = () => {
       description: 'Private, intelligent social networking with AI-curated content.',
       icon: Users,
       status: 'In Development',
+      statusColor: 'bg-[#A5A58D]/20 text-[#A5A58D]',
       link: '/virasocial',
       color: 'from-[#A5A58D]/20 to-[#A5A58D]/5',
       borderColor: 'border-[#A5A58D]/30'
@@ -27,6 +29,7 @@ const ProductsOverview = () => {
       description: 'Smart time tracking with AI-powered insights and analytics.',
       icon: Clock,
       status: 'Coming Soon',
+      statusColor: 'bg-white/10 text-[#FAEDCD]/40',
       link: '/viratime',
       color: 'from-[#D4A373]/20 to-[#D4A373]/5',
       borderColor: 'border-[#D4A373]/30'
@@ -59,11 +62,7 @@ const ProductsOverview = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold group-hover:text-[#D4A373] transition-colors">{product.name}</h3>
-                  <span className={`text-sm px-3 py-1 rounded-full mt-2 inline-block transition-colors ${
-                    product.status === 'Available Now' 
-                      ? 'bg-[#D4A373]/20 text-[#D4A373] group-hover:bg-[#D4A373]/30'
-                      : 'bg-[#A5A58D]/20 text-[#A5A58D] group-hover:bg-[#A5A58D]/30'
-                  }`}>
+                  <span className={`text-sm px-3 py-1 rounded-full mt-2 inline-block transition-colors ${product.statusColor}`}>
                     {product.status}
                   </span>
                 </div>
@@ -92,7 +91,7 @@ const ProductsOverview = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="inline-flex items-center gap-2 mt-8 text-[#FAEDCD]/60 hover:text-[#D4A373] transition-colors text-sm"
           >
-            <ArrowRight className="w-4 h-4 rotate-90" />
+            <ArrowRight className="w-4 h-4 -rotate-90" />
             Back to top
           </button>
         </div>
