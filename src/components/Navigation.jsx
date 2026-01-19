@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
@@ -18,10 +18,8 @@ const Navigation = () => {
 
   const handleLogoClick = () => {
     if (location.pathname === '/') {
-      // Ana sayfadaysa, en üste scroll et
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Başka sayfadaysa, ana sayfaya git
       navigate('/');
     }
     setIsMobileMenuOpen(false);
@@ -40,9 +38,17 @@ const Navigation = () => {
         {/* Logo - Tıklanabilir ve ana sayfaya gider */}
         <button
           onClick={handleLogoClick}
-          className="flex items-center space-x-2 hover:opacity-80 transition-opacity group"
+          className="flex items-center space-x-3 hover:opacity-80 transition-opacity group"
         >
-          <Sparkles className="w-6 h-6 text-[#D4A373] group-hover:scale-110 transition-transform" />
+          {/* Logo Resmi */}
+          <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <img 
+              src="/vira-logo.png" 
+              alt="Vira Intelligence" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+          {/* Logo Yazısı */}
           <span className="text-xl font-bold text-[#D4A373] tracking-tight group-hover:text-[#D4A373]/90 transition-colors">
             Vira Intelligence
           </span>
