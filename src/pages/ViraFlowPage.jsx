@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, Zap, WifiOff, Lock, Eye, Calendar, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Smartphone, Zap, WifiOff, Lock, Eye, Download, ArrowRight, Sparkles, CheckCircle2, Github } from 'lucide-react';
 
 const ViraFlowPage = () => {
   const [currentTime, setCurrentTime] = useState('');
@@ -60,7 +60,7 @@ const ViraFlowPage = () => {
     useEffect(() => {
       const interval = setInterval(() => {
         setActiveTask((prev) => (prev + 1) % 2);
-      }, 4000); // Daha yavaş animasyon
+      }, 4000);
       return () => clearInterval(interval);
     }, []);
 
@@ -177,7 +177,7 @@ const ViraFlowPage = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4A373]/10 border border-[#D4A373]/20 mb-6">
                 <Sparkles className="w-4 h-4 text-[#D4A373]" />
                 <span className="text-sm font-medium text-[#D4A373]">
-                  Deploy Stage • Beta Testing
+                  Beta Release • v1.0.0
                 </span>
               </div>
               
@@ -193,15 +193,35 @@ const ViraFlowPage = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-[#D4A373]/20 text-[#D4A373] font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/30 border border-[#D4A373]/40 flex items-center justify-center gap-3 text-lg">
-                  <Calendar className="w-5 h-5" />
-                  Coming to iOS & Android Q1 2026
-                </button>
+                <a 
+                  href="https://github.com/viranora/viraFlow/releases/tag/v1.0.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#D4A373] text-[#1E1B18] font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/90 active:scale-95 shadow-lg flex items-center justify-center gap-3 text-lg group"
+                >
+                  <Download className="w-5 h-5 group-hover:animate-bounce" />
+                  Download APK (Beta)
+                </a>
+                <a 
+                  href="https://github.com/viranora/viraFlow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-transparent text-[#FAEDCD] font-medium px-8 py-4 rounded-lg transition-all duration-300 hover:bg-white/5 active:scale-95 border border-[#A5A58D]/30 flex items-center justify-center gap-3"
+                >
+                  <Github className="w-5 h-5" />
+                  View on GitHub
+                </a>
               </div>
               
-              <p className="text-sm text-[#FAEDCD]/50 mt-4">
-                Currently in final testing phase. App Store & Play Store launch Q1 2026.
-              </p>
+              <div className="mt-6 p-4 rounded-lg bg-[#A5A58D]/10 border border-[#A5A58D]/20">
+                <p className="text-sm text-[#FAEDCD]/70 flex items-start gap-2">
+                  <span className="text-[#A5A58D] mt-0.5">ℹ️</span>
+                  <span>
+                    <strong className="text-[#A5A58D]">Android Beta:</strong> Install the APK to test ViraFlow. 
+                    iOS version coming soon to TestFlight.
+                  </span>
+                </p>
+              </div>
             </div>
             
             <div className="relative flex justify-center">
@@ -267,27 +287,32 @@ const ViraFlowPage = () => {
             </div>
             
             <div className="bg-[#1E1B18] border border-white/10 rounded-3xl p-8 hover:border-[#D4A373]/30 transition-colors">
-              <h4 className="text-2xl font-bold mb-4">Ready for Launch</h4>
+              <h4 className="text-2xl font-bold mb-4">Beta Testing Phase</h4>
               <p className="text-[#FAEDCD]/70 mb-6">
-                ViraFlow is in final deployment stage. We're preparing for App Store and Play Store release in Q1 2026.
+                ViraFlow v1.0.0 is now available for beta testing. Download the APK and help us improve the experience.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[#FAEDCD]/60">
                   <CheckCircle2 className="w-5 h-5 text-[#A5A58D]" />
-                  <span>Beta testing completed</span>
-                </div>
-                <div className="flex items-center gap-3 text-[#FAEDCD]/60">
-                  <CheckCircle2 className="w-5 h-5 text-[#A5A58D]" />
-                  <span>App Store submission in progress</span>
+                  <span>Android APK available</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#FAEDCD]/60">
                   <div className="w-5 h-5 rounded-full border-2 border-[#D4A373] border-t-transparent animate-spin"></div>
-                  <span>Final deployment phase</span>
+                  <span>iOS TestFlight coming soon</span>
+                </div>
+                <div className="flex items-center gap-3 text-[#FAEDCD]/60">
+                  <Github className="w-5 h-5 text-[#A5A58D]" />
+                  <span>Open source on GitHub</span>
                 </div>
               </div>
-              <p className="text-sm text-[#FAEDCD]/40 mt-6 text-center">
-                Expected launch: Q1 2026
-              </p>
+              <a 
+                href="https://github.com/viranora/viraFlow/releases/tag/v1.0.0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full mt-6 bg-transparent text-[#D4A373] font-medium py-3 rounded-lg text-center transition-all duration-300 hover:bg-[#D4A373]/10 border border-[#D4A373]/30"
+              >
+                Download Beta →
+              </a>
             </div>
           </div>
         </div>

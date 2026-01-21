@@ -72,11 +72,7 @@ const Navigation = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D4A373] group-hover:w-full transition-all duration-300"></span>
             </Link>
           ))}
-          <Link to="/viraflow" onClick={() => setIsMobileMenuOpen(false)}>
-            <button className="bg-transparent text-[#D4A373] font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:bg-[#D4A373]/10 active:scale-95 border border-[#D4A373]/30">
-              Try ViraFlow
-            </button>
-          </Link>
+          {/* Try ViraFlow butonu kaldırıldı */}
         </div>
 
         {/* Mobile Menu Button */}
@@ -111,11 +107,7 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
-            <Link to="/viraflow" onClick={() => setIsMobileMenuOpen(false)}>
-              <button className="w-full bg-transparent text-[#D4A373] font-medium px-6 py-2 rounded-lg mt-4 border border-[#D4A373]/30">
-                Try ViraFlow
-              </button>
-            </Link>
+            {/* Try ViraFlow butonu kaldırıldı */}
           </div>
         </div>
       )}
