@@ -27,7 +27,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'ViraFlow', href: '/viraflow' },
-    { name: 'ViraSocial', href: '/virasocial', comingSoon: true },
+    { name: 'ViraSocial', href: '/virasocial' },
     { name: 'ViraTime', href: '/viratime', comingSoon: true },
     { name: 'Contact', href: '/contact' },
   ];
